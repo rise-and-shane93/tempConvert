@@ -34,8 +34,7 @@ public class TemperatureConversion {
     }
   }
 
-  /* tempConvert method that returns a float
-  It accepts two parameters, a String and a float */
+  // tempConvert method that accepts two parameters, a String and a float
   public static void tempConvert(String type, float temp) {
 
     // initialize this variable to 0F. Will be reassigned to the converted temperature.
