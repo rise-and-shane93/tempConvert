@@ -16,16 +16,14 @@ public class TemperatureConversion {
                     temperatureFahrenheit = input.nextFloat();
 
                     // Call the tempConvert method passing the string "F" and the temperature in Farenheit as arguments
-                    temperatureCelsius = tempConvert("F", temperatureFahrenheit);
-                    System.out.println( temperatureFahrenheit + " degrees Fahrenheit is " + temperatureCelsius + " degrees Celsius" );
+                    tempConvert("F", temperatureFahrenheit);
                     break;
         case 2:     // Convert Celsius to Fahrenheit
                     System.out.print( "Enter a Celsius temperature: " );
                     temperatureCelsius = input.nextFloat();
 
                     // Call the tempConvert method passing the string "C" and the temperature in Celsius as arguments
-                    temperatureFahrenheit = tempConvert("C", temperatureCelsius);
-                    System.out.println( temperatureCelsius + " degrees Celsius is " + temperatureFahrenheit + " degrees Fahrenheit" );
+                    tempConvert("C", temperatureCelsius);
                     break;
         case 3:     // End Program
                     System.out.println( "Bye Bye" );
@@ -38,17 +36,22 @@ public class TemperatureConversion {
 
   /* tempConvert method that returns a float
   It accepts two parameters, a String and a float */
-  public static float tempConvert(String type, float temp) {
+  public static void tempConvert(String type, float temp) {
+
+    // initialize this variable to 0F. Will be reassigned to the converted temperature.
+    float convertedTemp = 0F;
 
     /* Check if the first parameter is the string "F"
     and if it is true, convert to Farenheit using the temp parameter
     Otherwise, perform the Celsius to Farenheit calculation */
     if (type == "F") {
       // F to C
-      return 5F/9F * (temp - 32F);
+      convertedTemp = 5F/9F * (temp - 32F);
+      System.out.println( temp + " degrees Fahrenheit is " + convertedTemp + " degrees Celsius" );
     } else {
       // C to F
-      return 9F/5F * temp + 32F;
+      convertedTemp = 9F/5F * temp + 32F;
+      System.out.println( temp + " degrees Celsius is " + convertedTemp + " degrees Fahrenheit" );
     }
   }
 }
