@@ -14,13 +14,17 @@ public class TemperatureConversion {
         case 1:     // Convert Fahrenheit to Celsius
                     System.out.print( "Enter a Fahrenheit temperature: " );
                     temperatureFahrenheit = input.nextFloat();
-                    temperatureCelsius = 5F/9F * ( temperatureFahrenheit - 32F );
+
+                    // Call the tempConvert method passing the string "F" and the temperature in Farenheit as arguments
+                    temperatureCelsius = tempConvert("F", temperatureFahrenheit);
                     System.out.println( temperatureFahrenheit + " degrees Fahrenheit is " + temperatureCelsius + " degrees Celsius" );
                     break;
         case 2:     // Convert Celsius to Fahrenheit
                     System.out.print( "Enter a Celsius temperature: " );
                     temperatureCelsius = input.nextFloat();
-                    temperatureFahrenheit = 9F/5F * temperatureCelsius + 32F;
+
+                    // Call the tempConvert method passing the string "C" and the temperature in Celsius as arguments
+                    temperatureFahrenheit = tempConvert("C", temperatureCelsius);
                     System.out.println( temperatureCelsius + " degrees Celsius is " + temperatureFahrenheit + " degrees Fahrenheit" );
                     break;
         case 3:     // End Program
@@ -31,5 +35,20 @@ public class TemperatureConversion {
       }
     }
   }
+
+  /* tempConvert method that returns a float
+  It accepts two parameters, a String and a float */
+  public static float tempConvert(String type, float temp) {
+
+    /* Check if the first parameter is the string "F"
+    and if it is true, convert to Farenheit using the temp parameter
+    Otherwise, perform the Celsius to Farenheit calculation */
+    if (type == "F") {
+      // F to C
+      return 5F/9F * (temp - 32F);
+    } else {
+      // C to F
+      return 9F/5F * temp + 32F;
+    }
+  }
 }
-//Re-design this program using methods. Explain the justification behind your re-design and why using methods is advantageous.
